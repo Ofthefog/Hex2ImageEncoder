@@ -7,5 +7,7 @@ This is not quite steganography and it doesn't create a malicious payload. The i
 The method used takes a hex dump such as from 'xxd', chops this into 2 charecter sections which determines the value of a greyscale pixel. This creates an effeciency in cases of totally random data of around 31-33%. This can be improved by having high levels of sameness in the hexdump, or more practically, encoding different values in the RGBA slots. Currently, the transparency is used as a binary bit to determine the EOF.
 
 TODO
+
 Add the ability to pass filename arguments by commandline, rather than hardcoding names
+
 Increase effeciency by using all RGB values
