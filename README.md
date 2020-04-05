@@ -6,10 +6,16 @@ This is not quite steganography and it doesn't create a malicious payload. The i
 
 PNG was chosen because it is lossless. Metadata was not chosen because occasionally online services will strip this, destroying the file in the proccess. 
 
-The method used takes a hex dump such as from 'xxd', chops this into 2 charactor sections which determines the value of a greyscale pixel. This creates an effeciency in cases of totally random data of around 31-33%. This can be improved by having high levels of sameness in the hexdump, or more practically, encoding different values in the RGBA slots. Currently, the transparency is used as a binary bit to determine the EOF.
+The method used takes a hex dump such as from 'xxd' without newlines and chops this into 2 charactor sections which determines value of a given pixel, alternating between R, G, and B. Transparency is used to determine EOF. Sameness of input and small size can cause greater than 100% effenciency, but still a functional level is achieved for random data. ( this method is labeled 'e' for 'enhanced' ). The decoder for this method is not yet finished.
+
+Alternatively, the hex dump can be encoded into greyscale, which decreasees the effeciency to 30-33%.
 
 TODO
 
 Add the ability to pass filename arguments by commandline, rather than hardcoding names
 
-Increase effeciency by using all RGB values
+Add decoder for enhanced full RGB version
+
+Unite files into one driver file
+
+Increase robustness by allowing input hex dump to contain spaces and newlines
