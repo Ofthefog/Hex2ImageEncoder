@@ -52,3 +52,4 @@ for y in range(dim):
 
 img.save("out.png")
 
+data.close()
