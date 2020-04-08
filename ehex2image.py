@@ -50,6 +50,6 @@ for y in range(dim):
 	else:
 		transparent = 0 # EOF, with no left over space
 
-img.save("out.png")
+img.save("out.png")#
 
 data.close()
