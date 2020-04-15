@@ -14,10 +14,8 @@ Alternatively, the hex dump can be encoded into greyscale, which decreasees the 
 
 TODO
 
-Add the ability to pass filename arguments by commandline, rather than hardcoding names
+Finish driver file
 
 Fix Endianness problem
 
-Unite files into one driver file
-
-Increase robustness by allowing input hex dump to contain spaces and newlines
+Add folders to clean up the download
