@@ -1,6 +1,5 @@
 # Hex2ImageEncoder
-Encode a hex dump into the IDAT section of a png file
-
+Encode an arbitrary file via hexadecimal into the IDAT section of a png file 
 
 This is not quite steganography and it doesn't create a malicious payload. The intended purpose is to encode abritary files as an image so that they may be passed in messaging apps or any other service that limits by file type, so the fact the image contains a file is rather obvious. Furthermore, if sent as plaintext, patterns can be seen with the naked eye that suggest things such as language or magic numbers. 
 
