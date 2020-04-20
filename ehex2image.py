@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 from PIL import Image
-import math, io, os
+import math, io
 
 # Open target file's hexcode
 # This assumes a hex file like the output of 'xxd -p' that was stripped of newlines
@@ -50,6 +50,6 @@ for y in range(dim):
 	else:
 		transparent = 0 # EOF, with no left over space
 
-img.save("out.png")#
+img.save("out.png")
 
 data.close()
