@@ -32,7 +32,7 @@ fi
 # Check if mode is valid
 
 if [[ ! "$M" = "greyscale" ]] && [[ ! "$M" = "enhanced" ]]; then
-   echo "valid modes are 'grayscale' and 'enhanced'"
+   echo "valid modes are 'greyscale' and 'enhanced'"
    exit 1
 fi
 
@@ -78,24 +78,34 @@ fi
 
 xxd -p $I | tr -d "\n" > hexin.txt
 
-if [[ $M = "grayscale" ]]; then
+if [[ $M = "greyscale" ]]; then
  python hex2image.py
- python image2hex.py
 fi
 
-#enhanced is not fully implemented at the moment ( endianess problem )
+# Enhanced is not fully implemented at the moment ( endianess problem )
 
 if [[ $M = "enhanced" ]]; then
  python ehex2image.py
- python eimage2hex.py
-fi
-
-if [[ $overwrite != true ]]; then
- 
 fi
 
 
-echo "$M"
-echo "$I"
-echo "$O"
+# We can let the built in overwrite protection be used here instead of rolling our own
+if [[ $overwrite = false ]]; then
+ cp -i out.png $O
+else
+ cp out.png $O
+fi
 
+# Let's get rid of those reserved files as to not clutter everything
+# You could change this if you'd rather shred them or something
+if [[ $cleanup = true ]]; then
+	
+	# The computer shouldn't get mad regardless of file existence with this construction
+	[ ! -e hexin.txt ] || rm hexin.txt
+	[ ! -e hexout.txt ] || rm hexout.txt
+	[ ! -e out.png ] || rm out.png
+
+fi
+
+
+exit 0
