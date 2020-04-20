@@ -14,8 +14,8 @@ Alternatively, the hex dump can be encoded into greyscale, which decreasees the 
 
 TODO
 
-Finish driver file
+Fix Endianness problem ( finish enhanced decoder )
 
-Fix Endianness problem
+Finish decoder driver file
 
 Add folders to clean up the download
